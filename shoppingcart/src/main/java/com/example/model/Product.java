@@ -46,3 +46,7 @@ public class Product {
         this.description = description;
     }
 }
+
+// This class is the code of a 'product' which equal to database's a row.
+// 이 클래스는 하나의 상품(Product) 이라는 개념을 코드로 표현한 것
+// DB의 테이블 한 줄(row) 에 해당됩니다. 
