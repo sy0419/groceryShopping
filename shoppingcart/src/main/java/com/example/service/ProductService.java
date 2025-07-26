@@ -29,4 +29,9 @@ public class ProductService {
     }
 }
 
-// 
+// Service class that figure the business logic 
+// It runs the works where customer(s) request(s).
+// Using Repository to connect with database.
+// 비즈니스 로직을 처리하는 서비스 클래스
+// 사용자가 요청한 작업을 실제로 실행합니다. (ex. 저장, 조회)
+// Repository를 사용해 DB와 연동합니다.
