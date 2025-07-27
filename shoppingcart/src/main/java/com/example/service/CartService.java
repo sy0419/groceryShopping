@@ -24,7 +24,7 @@ public class CartService {
         cartItemRepository.save(cartItem);
     }
 
-    public void AddCartItem(Long productId, int quantity) {
+    public void addCartItem(Long productId, int quantity) {
         Product product = productRepository.findById(productId)
             .orElseThrow(() -> new RuntimeException("Product not found"));
         CartItem cartItem = new CartItem();
