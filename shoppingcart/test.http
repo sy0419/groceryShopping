@@ -1,0 +1,12 @@
+POST http://localhost:8080/products
+
+Content-Type: application/json
+
+{
+  "name": "예시상품",
+  "price": 10000,
+  "description": "테스트 상품입니다"
+}
+
+// GET http://localhost:8080/products
+// DELETE http://localhost:8080/products/1
