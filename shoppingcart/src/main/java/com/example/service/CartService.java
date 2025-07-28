@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.model.CartItem;
@@ -31,5 +33,9 @@ public class CartService {
         cartItem.setProduct(product);
         cartItem.setQuantity(quantity);
         cartItemRepository.save(cartItem);
+    }
+
+    public List<CartItem> getAllItems() {
+        return cartItemRepository.findAll();
     }
 }
