@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.controller.CartController;
 import com.example.model.CartItem;
 import com.example.model.Product;
 import com.example.repository.CartItemRepository;
@@ -17,8 +16,6 @@ import com.example.repository.ProductRepository;
  */
 @Service
 public class CartService {
-
-    private final CartController cartController;
     private final CartItemRepository cartItemRepository;
     private final ProductRepository productRepository;
 
@@ -31,10 +28,9 @@ public class CartService {
      * @param cartItemRepository 장바구니 항목 저장소
      * @param productRepository 상품 저장소
      */
-    public CartService(CartItemRepository cartItemRepository, ProductRepository productRepository, CartController cartController) {
+    public CartService(CartItemRepository cartItemRepository, ProductRepository productRepository) {
         this.cartItemRepository = cartItemRepository;
         this.productRepository = productRepository;
-        this.cartController = cartController;
     }
 
     /**
