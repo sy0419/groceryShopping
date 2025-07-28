@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.controller.CartController;
 import com.example.model.CartItem;
 import com.example.model.Product;
 import com.example.repository.CartItemRepository;
@@ -16,6 +17,8 @@ import com.example.repository.ProductRepository;
  */
 @Service
 public class CartService {
+
+    private final CartController cartController;
     private final CartItemRepository cartItemRepository;
     private final ProductRepository productRepository;
 
@@ -28,9 +31,10 @@ public class CartService {
      * @param cartItemRepository 장바구니 항목 저장소
      * @param productRepository 상품 저장소
      */
-    public CartService(CartItemRepository cartItemRepository, ProductRepository productRepository) {
+    public CartService(CartItemRepository cartItemRepository, ProductRepository productRepository, CartController cartController) {
         this.cartItemRepository = cartItemRepository;
         this.productRepository = productRepository;
+        this.cartController = cartController;
     }
 
     /**
@@ -78,5 +82,20 @@ public class CartService {
      */
     public List<CartItem> getAllItems() {
         return cartItemRepository.findAll();
+    }
+
+    // 장바구니 아이템 삭제 메서드
+    // Deletes a cart item by its ID
+    public void deleteCartItem(Long id) {
+
+        // 해당 ID의 장바구니 아이템이 존재하지 않으면 예외 발생
+        // Throws an exception if the cart item with the given ID does not exist
+        if (!cartItemRepository.existsById(id)) {
+            throw new RuntimeException("장바구니 아이템을 찾을 수 없습니다.");
+        }
+
+        // 아이템이 존재하면 삭제 처리
+        // Deletes the cart item if it exists
+        cartItemRepository.deleteById(id);
     }
 }
