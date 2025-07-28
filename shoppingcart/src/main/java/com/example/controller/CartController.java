@@ -71,7 +71,6 @@ public class CartController {
     // Handles DELETE request from the client at /cart/items/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCartItem(@PathVariable Long id) {
-
         // [서비스 계층에 삭제 요청 전달] 해당 id의 장바구니 아이템을 삭제하도록 서비스에 위임
         // Delegates the deletion of the cart item with the given ID to the service layer
         cartService.deleteCartItem(id);
