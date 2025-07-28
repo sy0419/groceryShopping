@@ -14,6 +14,9 @@ public class Product {
     private int price;
     private String description;
 
+    public Product() {
+    }
+
     public Long getId() {
         return id;
     }
