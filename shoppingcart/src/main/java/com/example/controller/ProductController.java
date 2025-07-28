@@ -24,12 +24,10 @@ import com.example.service.ProductService;
 public class ProductController {
 
     private final ProductService productService;
-    private final CartService cartService;
 
     // 생성자를 통한 의존성 주입 (Dependency Injection)
     public ProductController(ProductService productService, CartService cartService) {
         this.productService = productService;
-        this.cartService = cartService;
     }
 
     /**
