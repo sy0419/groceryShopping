@@ -7,14 +7,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class CartItem{
+public class CartItem {
+
+    // 장바구니 항목 고유 ID (자동 생성됨)
+    // Unique identifier for the cart item (auto-generated)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    // 어떤 상품인지 연결 (Product와 다대일 관계)
+    // Which product is added to the cart (Many-to-One relationship with Product)
     @ManyToOne
     private Product product;
+
+    // 담은 상품 수량
+    // How many units of the product the user added
     private int quantity;
 
+    // --- Getter & Setter ---
+    
     public Long getId() {
         return id;
     }
@@ -39,10 +50,3 @@ public class CartItem{
         this.quantity = quantity;
     }
 }
-
-// The items which is in the cart by customer
-// This code shows the structure when user put the item into the cart.
-// Based on Product, this code also shows how many of the items into the cart.
-// 장바구니에 담긴 상품 항목 (Entity)
-// 사용자가 장바구니에 상품을 담았을 때의 구조를 나타냅니다.
-// 즉, Product를 참조하면서 "이걸 몇 개 담았는지"를 함께 저장합니다.
