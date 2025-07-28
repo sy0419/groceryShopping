@@ -62,4 +62,21 @@ public class CartService {
      */
     public void addCartItem(Long productId, int quantity) {
         Product product = productRepository.findById(productId)
-            .orElseThrow(() -> new RuntimeException("Product not
+            .orElseThrow(() -> new RuntimeException("Product not found"));
+        CartItem cartItem = new CartItem();
+        cartItem.setProduct(product);
+        cartItem.setQuantity(quantity);
+        cartItemRepository.save(cartItem);
+    }
+
+    /**
+     * Retrieve all items currently in the cart.
+     * 
+     * 현재 장바구니에 담긴 모든 아이템을 조회합니다.
+     * 
+     * @return 장바구니 아이템 리스트
+     */
+    public List<CartItem> getAllItems() {
+        return cartItemRepository.findAll();
+    }
+}
