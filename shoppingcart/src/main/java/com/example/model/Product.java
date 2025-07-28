@@ -7,15 +7,31 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Product {
+
+    // 상품 고유 ID (자동 생성됨)
+    // Unique ID for each product (auto-generated)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    // 상품 이름
+    // Name of the product
     private String name;
+
+    // 상품 가격
+    // Price of the product
     private int price;
+
+    // 상품 설명
+    // Description of the product
     private String description;
 
+    // 기본 생성자 (Spring JPA가 내부적으로 사용함)
+    // Default constructor (used internally by Spring JPA)
     public Product() {
     }
+
+    // --- Getter & Setter ---
 
     public Long getId() {
         return id;
@@ -49,9 +65,3 @@ public class Product {
         this.description = description;
     }
 }
-
-// Entity date model
-// This class is the code of a 'product' which equal to database's a row.
-// 상품 데이터 모델 (Entity)
-// 이 클래스는 하나의 상품(Product) 이라는 개념을 코드로 표현한 것입니다.
-// DB의 테이블 한 줄(row) 에 해당됩니다. 
