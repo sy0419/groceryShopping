@@ -16,12 +16,14 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public void saveProduct(Product product) {
-        productRepository.save(product);
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
     }
 
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        List<Product> products = productRepository.findAll();
+        System.out.println("DB에서 조회된 상품 개수: " + products.size());
+        return products;
     }
 
     public Product getProductById(Long id) {
