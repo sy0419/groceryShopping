@@ -1,4 +1,4 @@
-
+### 상품 등록
 POST http://localhost:8080/products
 Content-Type: application/json
 
@@ -8,6 +8,14 @@ Content-Type: application/json
   "description": "테스트 상품입니다"
 }
 
-GET http://localhost:8080/products
+### 장바구니에 상품 추가
+POST http://localhost:8080/cart/items
+Content-Type: application/json
 
-// DELETE http://localhost:8080/products/1
+{
+  "productId": 1,
+  "quantity": 2
+}
+
+### 장바구니 조회
+GET http://localhost:8080/cart/items
