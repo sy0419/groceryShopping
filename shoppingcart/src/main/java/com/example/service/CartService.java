@@ -87,7 +87,6 @@ public class CartService {
     // 장바구니 아이템 삭제 메서드
     // Deletes a cart item by its ID
     public void deleteCartItem(Long id) {
-
         // 해당 ID의 장바구니 아이템이 존재하지 않으면 예외 발생
         // Throws an exception if the cart item with the given ID does not exist
         if (!cartItemRepository.existsById(id)) {
