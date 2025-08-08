@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.exception.NotFoundException;
 import com.example.model.Product;
 import com.example.repository.ProductRepository;
 
@@ -65,7 +66,8 @@ public class ProductService {
      * @return 조회된 상품 또는 null
      */
     public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
+        return productRepository.findById(id)
+            .orElseThrow(() -> new NotFoundException("Product not found with ID: " + id));
     }
 
     /**
