@@ -46,3 +46,23 @@ Content-Type: application/json
 
 ### [4] 명시적 삭제 테스트 - 두 번째 아이템 삭제
 DELETE http://localhost:8080/cart/items/2
+
+### [5] 없는 상품 장바구니에 추가 시도 (예외 테스트)
+POST http://localhost:8080/cart/items
+Content-Type: application/json
+
+{
+  "productId": 999,
+  "quantity": 1
+}
+
+### [6] 없는 장바구니 아이템 수량 변경 시도 (예외 테스트)
+PATCH http://localhost:8080/cart/items/999
+Content-Type: application/json
+
+{
+  "quantity": 1
+}
+
+### [7] 없는 장바구니 아이템 삭제 시도 (예외 테스트)
+DELETE http://localhost:8080/cart/items/999
