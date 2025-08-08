@@ -1,24 +1,32 @@
-### 상품 등록
+### [1] 상품 등록 (없으면 등록)
 POST http://localhost:8080/products
 Content-Type: application/json
 
 {
-  "name": "예시상품",
-  "price": 10000,
-  "description": "테스트 상품입니다"
+  "name": "샘플상품",
+  "price": 15000,
+  "description": "삭제 테스트용 상품"
 }
 
-### 장바구니에 상품 추가
+### [2] 장바구니에 상품 추가
 POST http://localhost:8080/cart/items
 Content-Type: application/json
 
 {
   "productId": 1,
-  "quantity": 2
+  "quantity": 3
 }
 
-### 장바구니 조회
+### [3] 장바구니 조회 (id 확인)
 GET http://localhost:8080/cart/items
 
-### 장바구니 특정 id 항목 삭제
-DELETE http://localhost:8080/cart/items/1
+### [4] 수량 0으로 변경 (자동 삭제 테스트)
+PATCH http://localhost:8080/cart/items/1
+Content-Type: application/json
+
+{
+  "quantity": 0
+}
+
+### [5] 장바구니 조회 (삭제 확인)
+GET http://localhost:8080/cart/items
