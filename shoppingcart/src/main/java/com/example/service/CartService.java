@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.exception.NotFoundException;
 import com.example.model.CartItem;
 import com.example.model.Product;
 import com.example.repository.CartItemRepository;
@@ -48,7 +49,7 @@ public class CartService {
      */
     public void updateQuantity(Long cartItemId, int quantity) {
         CartItem cartItem = cartItemRepository.findById(cartItemId)
-            .orElseThrow(() -> new RuntimeException("Item not found"));
+            .orElseThrow(() -> new NotFoundException("Item not found"));
         if (quantity <= 0) {
             cartItemRepository.deleteById(cartItemId);
         } else {
@@ -69,7 +70,7 @@ public class CartService {
      */
     public void addCartItem(Long productId, int quantity) {
         Product product = productRepository.findById(productId)
-            .orElseThrow(() -> new RuntimeException("Product not found"));
+            .orElseThrow(() -> new NotFoundException("Product not found"));
         CartItem cartItem = new CartItem();
         cartItem.setProduct(product);
         cartItem.setQuantity(quantity);
@@ -93,7 +94,7 @@ public class CartService {
         // 해당 ID의 장바구니 아이템이 존재하지 않으면 예외 발생
         // Throws an exception if the cart item with the given ID does not exist
         if (!cartItemRepository.existsById(id)) {
-            throw new RuntimeException("장바구니 아이템을 찾을 수 없습니다.");
+            throw new NotFoundException("장바구니 아이템을 찾을 수 없습니다.");
         }
 
         // 아이템이 존재하면 삭제 처리
