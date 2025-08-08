@@ -36,10 +36,7 @@ Content-Type: application/json
   "quantity": 5
 }
 
-### [3] 장바구니 조회 (id 확인)
-GET http://localhost:8080/cart/items
-
-### [4] 수량 0으로 변경 (자동 삭제 테스트)
+### [3] 수량 0으로 변경 (자동 삭제 테스트)
 PATCH http://localhost:8080/cart/items/1
 Content-Type: application/json
 
@@ -47,8 +44,5 @@ Content-Type: application/json
   "quantity": 0
 }
 
-### [5] 명시적 삭제 테스트 - 두 번째 아이템 삭제
+### [4] 명시적 삭제 테스트 - 두 번째 아이템 삭제
 DELETE http://localhost:8080/cart/items/2
-
-### [6] 장바구니 최종 조회 (삭제 확인)
-GET http://localhost:8080/cart/items
