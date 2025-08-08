@@ -35,19 +35,26 @@ public class CartService {
 
     /**
      * Update the quantity of a cart item by its ID.
+     * Deletes the item if the new quantity is 0 or less.
      * Throws an exception if the item is not found.
      * 
      * 장바구니 아이템의 수량을 변경합니다.
+     * 수량이 0 이하일 경우 해당 아이템을 삭제합니다.
      * 아이템이 없으면 예외를 던집니다.
      * 
      * @param cartItemId 변경할 장바구니 아이템 ID
      * @param quantity 변경할 수량
+     * @throws RuntimeException 장바구니 아이템이 존재하지 않을 경우
      */
     public void updateQuantity(Long cartItemId, int quantity) {
         CartItem cartItem = cartItemRepository.findById(cartItemId)
             .orElseThrow(() -> new RuntimeException("Item not found"));
-        cartItem.setQuantity(quantity);
-        cartItemRepository.save(cartItem);
+        if (quantity <= 0) {
+            cartItemRepository.deleteById(cartItemId);
+        } else {
+            cartItem.setQuantity(quantity);
+            cartItemRepository.save(cartItem);
+        }
     }
 
     /**
