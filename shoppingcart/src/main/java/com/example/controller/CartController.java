@@ -40,8 +40,9 @@ public class CartController {
      * @param request 상품 ID와 수량을 포함하는 요청 객체
      */
     @PostMapping
-    public void addItemToCart(@RequestBody AddCartItemRequest request) {
+    public ResponseEntity<Void> addItemToCart(@RequestBody AddCartItemRequest request) {
         cartService.addCartItem(request.getProductId(), request.getQuantity());
+        return ResponseEntity.status(201).build();
     }
 
     /**
