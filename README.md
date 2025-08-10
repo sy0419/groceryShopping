@@ -91,5 +91,7 @@ cd groceryShopping
 #기본 실행 포트
  http://localhost:8080
 
+---
+
 ## 📌 기타
 프론트엔드 연동 또는 추가 기능 확장도 고려 중입니다
