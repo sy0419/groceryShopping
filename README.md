@@ -3,9 +3,6 @@ Spring Boot 기반의 쇼핑카트(장바구니) REST API 프로젝트입니다.
 상품 등록/조회부터 장바구니 CRUD 기능, 예외 처리 및 테스트까지 완비된 간단한 쇼핑 시스템을 구현했습니다.
 
 📁 프로젝트 구조
-mathematica
-복사
-편집
 com.example
 |
 ├── controller
@@ -31,6 +28,7 @@ com.example
 │   └── GlobalExceptionHandler.java
 |
 └── ShoppingcartApplication.java
+
 ✅ 주요 기능
 기능	메서드 & 엔드포인트	설명
 상품 등록	POST /products	새로운 상품을 등록합니다
