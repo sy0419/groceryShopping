@@ -88,6 +88,7 @@ cd groceryShopping
 # 애플리케이션 실행
 ./mvnw spring-boot:run
 
-#기본 실행 포트: http://localhost:8080
+#기본 실행 포트
+ http://localhost:8080
 
 
